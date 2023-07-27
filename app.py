@@ -2,10 +2,14 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-#easier way to get data from HTTP
 @app.route("/")
 def index():
     return render_template("index.html")
+
+#request.args.get() --> .get()
+@app.route("/greet")
+def greet():
+    return render_template("greet.html", name = request.args.get("name", "world"))
 
 
 
