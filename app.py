@@ -7,7 +7,12 @@ app = Flask(__name__)
 #decerator used to map function to a particular part of url
 @app.route("/")
 def index():
-    return render_template("index.html")#finds the html given and displays to user
+    if "name" in request.args:#if there is a name in request.args
+        name = request.args["name"]#get name from HTTP and store in var (name)
+    else:
+        name = "World" #if no HTTP (name) provided. 
+        #'render_template()' also takes named args of your choice to pass to template dir files
+    return render_template("index.html", placeholder=name)#finds the html given and displays to user
 
 
 
