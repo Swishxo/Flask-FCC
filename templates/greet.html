@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Flask Project</title>
-    </head>
-    <body>
-        Hello, {{ name }}
-    </body>
-</html>
+<!--first extend the file your plugging into-->
+{% extends "layout.html" %}
+
+<!--create block with specified name. Here its called (body)-->
+{% block body %}
+
+    hello, {{ name }}<!--pass variable to html file using {{ var }}-->
+
+{% endblock %}<!--must end block content w/ (endblock)-->
